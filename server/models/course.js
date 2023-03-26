@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const mongoosePaginet = require('mongoose-paginate')
 
 const courseSchema = mongoose.Schema({
     title: String,
@@ -8,5 +9,7 @@ const courseSchema = mongoose.Schema({
     price:  Number,
     score: Number
 })
+
+courseSchema.plugin(mongoosePaginet)
 
 module.exports = mongoose.model('course', courseSchema)

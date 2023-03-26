@@ -7,5 +7,8 @@ const md_upload = multyparty({uploadDir: "./uploads/course"})
 const api = express.Router()
 
 api.post('/course', [md_auth.asureAuth, md_upload], CourseController.createCourse)
+api.get('/course', CourseController.getCourses)
+api.patch('/course/:id',[md_auth.asureAuth, md_upload] , CourseController.updateCourse)
+api.delete('/course/:id',[md_auth.asureAuth, md_upload] , CourseController.deleteCourse)
 
 module.exports = api
